@@ -1,14 +1,69 @@
-.information {
-  background: rgba(100, 0, 170);
-  position: absolute;
+informatin {
+  background: rgba(251, 239, 2, 1);
+  width: 796px;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+  padding-right: 20px;
+  margin-top: 20px;
+  line-height: 120%;
+  margin-left: 20px;
+}
+.navigation {
+  background: rgba(251, 239, 2, 1);
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
+  width: 200px;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+  padding-right: 20px;
+  margin-top: 20px;
+  display: flex;
+  line-height: 120%;
+
+}
+.navigation li {
+  list-style-type: none;
 }
 
-.navigation {
-  margin-top: 230px;
+.navigation a {
+  color: black;
+  text-decoration-line: none;
+}
+.lv1 {
+  font-weight: bold;
+}
+
+.lv1:hover {
+  color: red;
+}
+.lv2:hover {
+  color: red;
+}
+
+.lv2 {
+  margin-left: -40px;
+  font-size: 12px;
+}
+
+
+main {
+  display: block;
+  background: rgba(251, 239, 2, 1);
+  line-height: 120%;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+  margin-top: 20px;
+  line-height: 120%;
+  margin-left: 40px;
+  min-width: 16em;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+}
+
+section {
+  display: block;
+  float: left;
+  width: 300px;
+
 }
 
 body{
@@ -18,53 +73,18 @@ body{
   color: #333333;
 }
 
-.information a {
-  color: rgba(255, 255, 255, 1);
-  font-size: 30px;
-  margin-top: 10px;
-}
-
 header {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 100%;
+  width: 1000px;
   height: 180px;
   background-color: rgba(251, 239, 2, 1);
-  float: left;
   border-radius: 0.5em 0.5em 0.5em;
   border: 1px solid;
-  margin: 10px;
 }
-
-
-
-.banner a {
-  font-size: 30px;
-  margin-bottom: 100px;
-}
-
-.zentriert {
-  align-items: center;
-  align-self: center;
-  align-content: center;
-}
-
-
-body{
-  margin: 10px auto;
-  max-width: 500em;
-  margin-left: 10px;
-}
-
-.content {
+content {
   background: rgba(251, 239, 2, 1);
-  position: absolute;
   top: 180px;
-  left: 0px;
   width: 180px;
   height: 100%;
-  text-align: center;
 }
 
 h1 {
@@ -73,4 +93,39 @@ h1 {
 
 header {
   border-color: #000000;
+}
+
+footer {
+  display: block;
+  background: rgba(251, 239, 2, 1);
+  margin-top: 20px;
+  line-height: 120%;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+  margin-top: 20px;
+  line-height: 120%;
+  margin-left: 40px;
+  min-width: 16em;
+  border-radius: 0.5em 0.5em 0.5em;
+  border: 1px solid;
+
+
+}
+
+@media (min-width: 32em)  {	/* mehrspaltiges Layout f�r breitere Viewports */
+  .navigation {
+    float: left;
+    width: 200px;
   }
+  main {
+    margin-left: 15em;
+    width: 760px;
+    height: 370;
+  }
+
+  footer {
+    margin-left: 15em;
+    width: 760px;
+    height: 40px;
+  }
+}
