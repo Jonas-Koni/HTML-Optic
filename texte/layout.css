@@ -9,13 +9,6 @@
   line-height: 120%;
 
 }
-.text {
-  padding: 20px;
-  padding-left: 35px;
-
-
-}
-
 
 .navigation li {
   list-style-type: none;
@@ -50,6 +43,8 @@ main {
   min-width: 16em;
   border-radius: 0.5em 0.5em 0.5em;
   border: 1px solid;
+  padding: 20px;
+  padding-left: 35px;
 }
 
 body{
@@ -90,6 +85,15 @@ footer {
   min-width: 16em;
   border-radius: 0.5em 0.5em 0.5em;
   border: 1px solid;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 35px;
+}
+
+footer author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 
 }
