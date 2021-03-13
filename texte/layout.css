@@ -1,13 +1,12 @@
 .navigation {
-  background: rgba(2500,250,250);
-  top: 0;
+  background: rgba(251, 239, 2, 1);
   border-radius: 0.5em 0.5em 0.5em;
   border: 1px solid;
   padding-right: 20px;
   margin-top: 20px;
-  display: flex;
   line-height: 120%;
-
+  float: left;
+  width: 200px;
 }
 
 .navigation li {
@@ -18,24 +17,24 @@
   color: black;
   text-decoration-line: none;
 }
-.lv1 {
-  font-weight: bold;
+
+.navigation a:hover {
+  background-color: #1C9C2C;
 }
 
-.lv1:hover {
-  color: red;
-}
-.lv2:hover {
-  color: red;
+.lv1 {
+  font-weight: bold;
 }
 
 .lv2 {
   margin-left: -40px;
   font-size: 12px;
+  color: red;
 }
 
 
 main {
+  background: rgba(251, 239, 2, 1);
   display: block;
   margin-top: 20px;
   line-height: 120%;
@@ -56,7 +55,6 @@ body{
 
 header {
   width: 1000px;
-  height: 180px;
   background-color: rgba(251, 239, 2, 1);
   border-radius: 0.5em 0.5em 0.5em;
   border: 1px solid;
@@ -87,29 +85,12 @@ footer {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 35px;
+  height: 40px;
+
 }
 
 footer author {
   display: flex;
   align-items: center;
   justify-content: center;
-
-
-}
-
-@media (min-width: 32em)  {	/* mehrspaltiges Layout f�r breitere Viewports */
-  .navigation {
-    float: left;
-    width: 200px;
-  }
-  main {
-    margin-left: 15em;
-    width: 704px;
-  }
-
-  footer {
-    margin-left: 15em;
-    width: 760px;
-    height: 40px;
-  }
 }
