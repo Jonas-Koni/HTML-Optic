@@ -48,7 +48,7 @@ function setupCanvas(canvas) {
   var dpr = window.devicePixelRatio || 1;
   var rect = canvas.getBoundingClientRect();
 
-  canvas.width = rect.width * dpr;
+  canvas.width = rect.width * dpr * 0.75;
   canvas.height = rect.height * dpr;
 
   var c = canvas.getContext('2d');
@@ -71,10 +71,6 @@ function setupCanvas(canvas) {
   c.lineWidth = 3;
   c.stroke();
 
-  c.font = "14px Arial";
-  c.fillStyle = 'rgba(10,10,200,1)'
-  c.fillText("Grenzfläche zwischen zwei", 0.72*c_width, c_height*0.55);
-  c.fillText("lichtdurchlässigen Stoffen", 0.72*c_width, c_height*0.6);
 
   c.beginPath()
   c.moveTo(c_width/2,0.05*c_height);
@@ -83,23 +79,50 @@ function setupCanvas(canvas) {
   c.lineWidth = 3;
   c.stroke();
 
-  c.fillStyle = 'rgba(0,0,0,1)'
-  c.fillText("Einfallslot", 0.375*c_width, c_height*0.1);
-  c.fillText("optisch", 0.87*c_width, c_height*0.1);
-  c.fillText("dünneres", 0.87*c_width, c_height*0.15);
-  c.fillText("Medium", 0.87*c_width, c_height*0.2);
-  c.fillText("optisch", 0.87*c_width, c_height*0.8);
-  c.fillText("dichteres", 0.87*c_width, c_height*0.85);
-  c.fillText("Medium", 0.87*c_width, c_height*0.9);
 
 
-  var n = 9; //n = Brechzahl
+
+  var Bi1 = 0.2 //Brechungsindex
+  var Bi2 = 0.5;
+
+  var n = Bi1/Bi2; //n = Brechzahl
+  if(n<1){
+    n = Math.pow(n,-1);
+  }
   var a = 45; //Einfallswinkel in Grad
   var sin_x_n = Math.sin(a*Math.PI/180)/n;
   var b = Math.asin(sin_x_n)*180/Math.PI;
 
+  var posX_alpha = Math.cos((90+a/2)*Math.PI/180)*c_height*0.1+c_width/2;
+  var posY_alpha = -Math.sin((90+a/2)*Math.PI/180)*c_height*0.1+c_height/2;
+
+  var posX_beta = Math.cos((270+b/2)*Math.PI/180)*c_height*0.25+c_width/2;
+  var posY_beta = Math.sin((90+a/2)*Math.PI/180)*c_height*0.25+c_height/2;
+
+  c.textAlign = "center";
+  c.font = "40px Arial";
+  c.fillStyle = 'rgba(200,10,10,0.5)';
+  c.fillText("\u03B1", posX_alpha, posY_alpha);
+  c.fillStyle = 'rgba(240,100,0,0.5)';
+  c.fillText("\u03B2", posX_beta, posY_beta);
+
   x = Math.cos((90+a)*Math.PI/180)*c_height*0.4;
   y = -Math.sin((90+a)*Math.PI/180)*c_height*0.4;
+
+  c.font = "10 Arial";
+  c.fillStyle = 'rgba(0,0,0,1)'
+
+  var d = 0.1; //dünneres
+  var f = 0.86; //dickeres
+
+  c.font = "Arial";
+  c.font = "font_size";
+  c.fillText("optisch", 0.92*c_width, c_height*(d));
+  c.fillText("dünneres", 0.92*c_width, c_height*(d+0.04));
+  c.fillText("Medium", 0.92*c_width, c_height*(d+0.08));
+  c.fillText("optisch", 0.92*c_width, c_height*(f));
+  c.fillText("dichteres", 0.92*c_width, c_height*(f+0.04));
+  c.fillText("Medium", 0.92*c_width, c_height*(f+0.08));
 
   c.beginPath();
   c.moveTo(x+c_width/2,y+c_height/2);
@@ -119,9 +142,17 @@ function setupCanvas(canvas) {
   c.beginPath();
   c.moveTo(x+c_width/2,y+c_height/2);
   c.lineTo(c_width/2,c_height/2)
-  c.strokeStyle = 'rgba(200,200,10,0.5)';
+  c.strokeStyle = 'rgba(240,100,0,0.5)';
   c.stroke();
 
+  c.beginPath();
+  c.moveTo(Math.cos((90+a)*Math.PI/180)*c_height*0.2+c_width/2,-Math.sin((90+a)*Math.PI/180)*c_height*0.2+c_height/2);
+  c.arc(c_width/2,c_height/2,c_height*0.2,(270-a)*Math.PI/180,(270)*Math.PI/180,false);
   c.strokeStyle = 'rgba(200,10,10,0.5)';
-  c.arc(c_width/2,c_height/2,100,(270-a)*Math.PI/180,(270)*Math.PI/180,false);
+  c.stroke();
+
+  c.beginPath();
+  c.moveTo(c_width/2,c_height*0.8);
+  c.arc(c_width/2,c_height/2,c_height*0.3,Math.PI/2,(90-b)*Math.PI/180,true);
+  c.strokeStyle = 'rgba(240,100,0,0.5)';
   c.stroke();
