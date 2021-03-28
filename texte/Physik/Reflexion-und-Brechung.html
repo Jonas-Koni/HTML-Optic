@@ -36,9 +36,50 @@
             </nav>
           </section>
           <main id="information" class="text">
-            adad <br>
-            dadad <br> <br>
+            Trifft Licht eines Materiales mit einer bestimmten Lichtdurchlässigkeit auf ein Material mit einer anderen Lichtdurchlässigkeit, so kommt es zu einer Reflektion.
+            Es gibt einen <span onmouseover="highlight(4)" onmouseout="highlight(-1)">Einfallsstrahl</span> mit seinem dazugehörigem <span onmouseover="highlight(7)" onmouseout="highlight(-1)">Einfallswinkel</span>
+            welcher der Winkel zwischen dem <span onmouseover="highlight(4)" onmouseout="highlight(-1)">Einfallsstrahl</span> und dem <span onmouseover="highlight(3)" onmouseout="highlight(-1)">Lot</span>,
+            welcher sich senkrecht zur <span onmouseover="highlight(2)" onmouseout="highlight(-1)">Horizontlinie</span> befindet, ist. 
+
+            <br><br>
             <canvas id="Reflection"></canvas>
+
+
+            <div class="slidecontainer">
+              <br>
+              <table id="ReflectionValues">
+                <tr>
+                  <th>Einfallswinkel:</th>
+                  <th width="75px" id="angle_value">Fehler!></th>
+                  <th>Reflektionswinkel</th>
+                  <th id="angle_reflection">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="20" max="80" value="45" id="angle" oninput="drawCanvas()"></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <th>Brechungsindex 1:</th>
+                  <th id="Bi1_value">Hallo Welt</th>
+                  <th>Brechungszahl</th>
+                  <th id="Brechungsindex">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="-300" max="300" value="0" id="Bi1"oninput="drawCanvas()"></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <th>Brechungsindex 2:</th>
+                  <th id="Bi2_value">Hallo Welt</th>
+                  <th>Brechungswinkel</th>
+                  <th id="Brechungswinkel">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="-300" max="300" value="1" id="Bi2"oninput="drawCanvas()"></th>
+                  <th></th>
+                </tr>
+              </table>
+            </div>
             <span class="Quelle"><a href="../Quellen.html">[2]</a></span>
         </main>
           </main>

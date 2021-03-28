@@ -10,6 +10,10 @@
   font-size: 5;
 }
 
+#ReflectionValues {
+    text-align: left;
+}
+
 
 .navigation {
   background: rgba(251, 239, 2, 1);
@@ -106,4 +110,12 @@ footer author {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.slidecontainer {
+  color: black;
+}
+
+.slidecontainer:hover {
+  opacity: 1;
 }
