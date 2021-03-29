@@ -2,6 +2,9 @@ var information_marginLeft_to_navigation = 20;
 var c_height;
 var c_width;
 var highlightNumber = -1;
+var consoleBi1; //Werte ändern per Konsole
+var consoleBi2;
+var consoleAlpha;
 
 var navigation = document.getElementById("navigation");
 var information = document.getElementById("information");
@@ -55,7 +58,6 @@ drawCanvas();
 function refresh() {
   navigation_height = navigation.offsetHeight;
   information.style.minHeight = navigation_height - footer_height - footer_marginTop - information_marginTop - information_marginBottom - 2;
-  console.log("hi");
   var canvas = document.getElementById("Reflection");
   var c = setupCanvas(canvas);
   drawCanvas();
@@ -72,10 +74,12 @@ function drawCanvas(){
   var Bi1_actual_value = parseInt(document.getElementById("Bi1").value); //Brechungsindex
   var Bi2_actual_value = parseInt(document.getElementById("Bi2").value);
   var a = parseInt(document.getElementById("angle").value); //Einfallswinkel in Grad
+  if(consoleAlpha !=null) {a = consoleAlpha;}
+
+  Bi1 = calcBi(Bi1_actual_value, consoleBi1);
+  Bi2 = calcBi(Bi2_actual_value, consoleBi2);
 
 
-  Bi1 = calcBi(Bi1_actual_value);
-  Bi2 = calcBi(Bi2_actual_value);
 
   var n = Bi1/Bi2; //n = Brechzahl
   drawCanvasSetup(c,n);
@@ -135,6 +139,7 @@ function drawCanvasLightLines(c,a,b,c_height,c_width){
   c.strokeStyle = 'rgba(240,100,0,0.5)';
   if(highlightNumber==8){c.strokeStyle = 'rgba(240,100,0,1)';}
   c.stroke();
+
 }
 
 
@@ -152,13 +157,11 @@ function drawCanvasSetup(c,n){
     d = 0.1;
     f = 0.86;
     h = 0;
-    console.log("<1");
 
   } else {
     d = 0.86;
     f = 0.1;
     h = c_height/2;
-    console.log(">1");
   }
 
 
@@ -221,7 +224,8 @@ function setupCanvas(canvas) {
   return c;
 }
 
-function calcBi (Bi_actual_value){
+function calcBi (Bi_actual_value, consoleBi){
+  if(consoleBi!=null){return consoleBi;}
   if(Bi_actual_value<100){
     return Math.round(Math.pow(2,Bi_actual_value/100-1)*100)/100;
   }
