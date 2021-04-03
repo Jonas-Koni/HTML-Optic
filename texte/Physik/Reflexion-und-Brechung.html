@@ -40,90 +40,9 @@
             Reflektion und einer Brechung des Lichtes. Der <span onmouseover="highlight(7)" onmouseout="highlight(-1)">Einfallswinkel</span> ist der Winkel zwischen dem
             <span onmouseover="highlight(4)" onmouseout="highlight(-1)">Einfallsstrahl</span> und dem <span onmouseover="highlight(3)" onmouseout="highlight(-1)">Lot</span>.
             Das <span onmouseover="highlight(3)" onmouseout="highlight(-1)">Lot</span> befindet sich senkrecht zur
-            <span onmouseover="highlight(2)" onmouseout="highlight(-1)">Grenzfläche</span> und schneidet sie im Punkt, indem das Licht auftritt. Im Normalfall trifft das Lichtes
+            <span onmouseover="highlight(2)" onmouseout="highlight(-1)">Grenzfläche</span> und schneidet sie in dem Punkt, indem das Licht auftritt. Im Normalfall trifft das Lichtes
             überall auf, weshalb auch überall ein Lot vorhanden ist. Der Reflektionswinkel ist genauso groß wie der Einfallswinkel, der Brechungswinkel ist abhängig vom Einfallswinkel,
-            sowie der für jeden Stoffübergang individuellen Brechzahl. Diese Brechzahl entspricht dem Sinus vom Einfallswinkel dividiert durch den Sinus von Brechungswinkel.
-            Eine Weitere Definition ist das Verhältnis der beiden Brechungsindexe. Somit gilt: <br><br>
-            <math>
-                <mfrac>
-                  <mi>n<sub>1</sub></mi>
-                  <mi>n<sub>2</sub></mi>
-                </mfrac>
-            </math>
-            =
-            <math>
-                <mfrac>
-                  <mi>sin(α)</mi>
-                  <mi>sin(β)</mi>
-                </mfrac>
-            </math>
-
-
-            <br> <br> Der Brechunngsindex ist das Verhältnis aus der Lichtgeschwindigkeit von Vakuum und dem jeweiligen Medium: <br> <br>
-            n =
-            <math>
-                <mfrac>
-                  <mi>c<sub>0</sub></mi>
-                  <mi>c<sub>M</sub></mi>
-                </mfrac>
-            </math> <br> <br>
-
-
-            Somit gilt: <br> <br>
-            <math>
-              <mfrac>
-                <mi>c<sub>0</sub></mi>
-                <mi>c<sub>M1</sub></mi>
-              </mfrac>
-               /
-             <mfrac>
-               <mi>c<sub>0</sub></mi>
-               <mi>c<sub>M2</sub></mi>
-             </mfrac>
-            </math>
-            =
-            <math>
-                <mfrac>
-                  <mi>sin(α)</mi>
-                  <mi>sin(β)</mi>
-                </mfrac>
-            </math><br> <br>
-
-
-
-            <math>
-              <mfrac>
-                <mi>c<sub>0</sub></mi>
-                <mi>c<sub>M1</sub></mi>
-              </mfrac>
-               *
-             <mfrac>
-               <mi>c<sub>M2</sub></mi>
-               <mi>c<sub>0</sub></mi>
-             </mfrac>
-            </math>
-            =
-            <math>
-                <mfrac>
-                  <mi>sin(α)</mi>
-                  <mi>sin(β)</mi>
-                </mfrac>
-            </math><br> <br>
-
-
-            <math>
-              <mfrac>
-                <mi>c<sub>M2</sub></mi>
-                <mi>c<sub>M1</sub></mi>
-              </mfrac>
-            </math>
-            =
-            <math>
-                <mfrac>
-                  <mi>sin(α)</mi>
-                  <mi>sin(β)</mi>
-                </mfrac>
-            </math>
+            sowie der für jeden Stoffübergang individuellen Brechzahl.
 
 
 
@@ -143,7 +62,7 @@
                   <th id="angle_reflection">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="0" max="90" value="45" id="angle" oninput="drawCanvas()"></th>
+                  <th><input type="number" min="0" max="90" value="45" id="angle" oninput="drawCanvas()"></th>
                   <th></th>
                 </tr>
                 <tr>
@@ -153,7 +72,7 @@
                   <th id="Brechungsindex">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="-300" max="300" value="0" id="Bi1"oninput="drawCanvas()"></th>
+                  <th><input type="number" min="0" max="5" value="1" step="0.00001" id="Bi1"oninput="drawCanvas()"></th>
                   <th></th>
                 </tr>
                 <tr>
@@ -163,10 +82,96 @@
                   <th id="Brechungswinkel">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="-300" max="300" value="1" id="Bi2"oninput="drawCanvas()"></th>
+                  <th><input type="number" min="0" max="5" step="0.00001" value="1" id="Bi2"oninput="drawCanvas()"></th>
                   <th></th>
                 </tr>
               </table>
+              Es gilt: <br><br>
+              <math>
+                  <mfrac>
+                    <mi>c<sub>1</sub></mi>
+                    <mi>c<sub>2</sub></mi>
+                  </mfrac>
+              </math>
+              = n <br> <br>
+              <math>
+                  <mfrac>
+                    <mi>sin(α)</mi>
+                    <mi>sin(β)</mi>
+                  </mfrac>
+              </math>
+              = n <br> <br>
+              n = Brechzahl <br>
+              c<sub>M</sub> = Lichtgeschwindigkeit des Materials <br>
+              α = Einfallswinkel <br>
+              β = Brechungswinkel <br>
+
+
+              <br> <br> Der Brechunngsindex ist das Verhältnis aus der Lichtgeschwindigkeit von Vakuum und dem jeweiligen Medium: <br> <br>
+              n =
+              <math>
+                  <mfrac>
+                    <mi>c<sub>0</sub></mi>
+                    <mi>c<sub>M</sub></mi>
+                  </mfrac>
+              </math> <br> <br>
+
+
+              Somit gilt: <br> <br>
+              <math>
+                <mfrac>
+                  <mi>c<sub>0</sub></mi>
+                  <mi>c<sub>M1</sub></mi>
+                </mfrac>
+                 /
+               <mfrac>
+                 <mi>c<sub>0</sub></mi>
+                 <mi>c<sub>M2</sub></mi>
+               </mfrac>
+              </math>
+              =
+              <math>
+                  <mfrac>
+                    <mi>sin(α)</mi>
+                    <mi>sin(β)</mi>
+                  </mfrac>
+              </math><br> <br>
+
+
+
+              <math>
+                <mfrac>
+                  <mi>c<sub>0</sub></mi>
+                  <mi>c<sub>M1</sub></mi>
+                </mfrac>
+                 *
+               <mfrac>
+                 <mi>c<sub>M2</sub></mi>
+                 <mi>c<sub>0</sub></mi>
+               </mfrac>
+              </math>
+              =
+              <math>
+                  <mfrac>
+                    <mi>sin(α)</mi>
+                    <mi>sin(β)</mi>
+                  </mfrac>
+              </math><br> <br>
+
+
+              <math>
+                <mfrac>
+                  <mi>c<sub>M2</sub></mi>
+                  <mi>c<sub>M1</sub></mi>
+                </mfrac>
+              </math>
+              =
+              <math>
+                  <mfrac>
+                    <mi>sin(α)</mi>
+                    <mi>sin(β)</mi>
+                  </mfrac>
+              </math>
             </div>
             <span class="Quelle"><a href="../Quellen.html">[2]</a></span>
         </main>
