@@ -1,3 +1,12 @@
+body{
+  margin: 10px auto;
+  max-width: 60em;
+  font-family: sans-serif;
+  color: #333333;
+  background: #1C9C2C;
+}
+
+
 .Quelle {
   vertical-align: super;
   font-size: 10;
@@ -16,6 +25,16 @@
 
 .table {
   text-align: left;
+}
+
+.table td {
+  vertical-align: top;
+}
+
+.backgroundWhite {
+  background-color: #1C9C2C;
+  border-radius: 0.5em 0.5em 0.5em;
+
 }
 
 .navigation {
@@ -66,13 +85,7 @@ main {
   line-height: 1.3;
 }
 
-body{
-  margin: 10px auto;
-  max-width: 60em;
-  font-family: sans-serif;
-  color: #333333;
-  background: #1C9C2C;
-}
+
 
 header {
   width: 1000px;
