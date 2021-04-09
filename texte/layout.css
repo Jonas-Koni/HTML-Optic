@@ -12,11 +12,20 @@ body{
   font-size: 10;
 }
 
-#Reflection {
+#Reflection{
   border: 1px solid black;
   width: 600px;
   border-radius: 0.5em 0.5em 0.5em;
   font-size: 5;
+}
+
+#Schatten {
+  border: 1px solid black;
+  width: 600px;
+  border-radius: 0.5em 0.5em 0.5em;
+  font-size: 5;
+  background: #DDDDDD;
+
 }
 
 #ReflectionValues {
@@ -32,9 +41,43 @@ body{
 }
 
 .backgroundWhite {
-  background-color: #1C9C2C;
+  background-color: rgba(255,200,20,1);
+  opacity: 1;
   border-radius: 0.5em 0.5em 0.5em;
+  border-style: solid;
+  border-color: rgba(255, 180, 20, 1);
 
+}
+
+#Arten_von_Lichtbuendeln {
+  background: rgba(255,200,10,1);
+  padding: 16px;
+  border-radius: 0.5em 0.5em 0.5em;
+  border-style: solid;
+  border-color: rgba(255,180, 20,1);
+}
+
+.Ueberschrift01 {
+  font-weight: bolder;
+  font-size: 20;
+  text-decoration: underline;
+}
+
+.Ueberschrift02 {
+  font-weight: bold;
+  font-size: 20;
+}
+
+.Merksatz {
+  background-color: rgba(255, 200, 20, 1);
+  padding: 16px;
+  border-radius: 0.5em 0.5em 0.5em;
+  text-align: center;
+  font-weight: bold;
+  border-style: solid;
+  border-color: rgba(255, 180, 20, 1);
+  border-width: 2px;
+  border-spacing: 100px;
 }
 
 .navigation {
