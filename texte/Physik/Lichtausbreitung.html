@@ -5,6 +5,7 @@
             <link rel="stylesheet" href="../layout.css">
             <script src="../js.js" defer></script>
             <script src="../Schatten_canvas.js" defer></script>
+            <script src="../Strahlensatz_canvas.js" defer></script>
       </head>
       <body>
         <header id="header">
@@ -109,13 +110,12 @@
             </table>
             <span class="Quelle"><a href="../Quellen.html">[13]</a></span>
             <span class="Quelle"><a href="../Quellen.html">[14]</a></span> <br><br>
-            <span class="Ueberschrift02">Lichtstrahlmodell</span> <br>
+            <b>Lichtstrahlmodell</b> <br>
             Einen idealen Lichtstrahl mit verschwindendem Durchmesser gibt es in der Realität nicht, wehshalb es nur eine Modellvorstellung ist.
             Man kann mit Hilfe von Verkleinerung eines Lichtbündels ein extrem feines, nahezu paralleles Lichtbündel eine gute Annäherung erreichen,
             aber nie den idealen Lichtstrahl.
-            <span class="Quelle"><a href="../Quellen.html">[15]</a></span> <br>
-
-            <span class="Ueberschrift02">Schatten</span> <br>
+            <span class="Quelle"><a href="../Quellen.html">[15]</a></span> <br> <br>
+            <b>Schatten</b> <br>
             Schatten ist:
             <ul>
               <li>die unbeleuchtete Fläche eines Gegenstandes</li>
@@ -124,7 +124,17 @@
             </ul>
             Man unterscheidet in Abhängigkeit von Anzahl und Ausdehnung an Lichtquellen mehrere Arten von Schatten (Kernschatten, Halbschatten und Mischschatten).
             Der Rand des unbeleuchteten Schattens heißt Schattengrenze oder Hell-Dunkel-Grenze.
-            <canvas id="Schatten"></canvas> <br><br>
+            <span class="Quelle"><a href="../Quellen.html">[16]</a></span> <br>
+            <u>physikalische Größen:</u> <br>
+            <ul>
+              <li onmouseover="highlightpG(0)" onmouseout="highlightpG(-1)">Schirmabstand</li>
+              <li onmouseover="highlightpG(1)" onmouseout="highlightpG(-1)">Objektabstand</li>
+
+            </ul>
+
+
+            <canvas id="Schatten"></canvas> <br>
+            Simulation nicht realistisch!<br>
             <div class="slidecontainer">
               <br>
               <table id="SchattenValues">
@@ -133,40 +143,158 @@
                   <th width="75px" id="setAnzahlLichtquellen">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="1" max="10" value="1" id="getAnzahlLichtquellen" oninput="drawCanvas()"></th>
+                  <th><input type="range" min="1" max="50" value="1" id="getAnzahlLichtquellen" oninput="drawCanvas()"></th>
                 </tr>
                 <tr>
                   <th>Verschiebung X:</th>
                   <th id="setVerschiebungX">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="3" max="10" value="1" id="getVerschiebungX" oninput="drawCanvas()"></th>
+                  <th><input type="range" min="3" max="10" value="5" id="getVerschiebungX" oninput="drawCanvas()"></th>
                 </tr>
                 <tr>
                   <th>Verschiebung Y:</th>
                   <th id="setVerschiebungY">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="1" max="10" value="1" id="getVerschiebungY" oninput="drawCanvas()"></th>
+                  <th><input type="range" min="1" max="10" value="5" id="getVerschiebungY" oninput="drawCanvas()"></th>
                 </tr>
                 <tr>
                   <th>Größe:</th>
                   <th id="setSize">Fehler!</th>
                 </tr>
                 <tr>
-                  <th><input type="range" min="1" max="10" value="1" id="getSize" oninput="drawCanvas()"></th>
+                  <th><input type="range" min="1" max="10" value="5" id="getSize" oninput="drawCanvas()"></th>
+                </tr>
+                <tr>
+                  <th>Position X Lichtquellen</th>
+                  <th id="setPoxXLichtquelle">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="0" max="10" value="5" id="getPosXLichtquelle" oninput="drawCanvas()"></th>
+                </tr>
+              </table> <br> <br>
+              Unter Schatten versteht man eine unbeleuchtete bzw. nicht direkt beleuchtete Fläche an z.B. einer Wand, sowie den nicht direkt
+              Schatten entsteht, wenn sich ein lichtundurchlässiges Objekt zwischen eine Lichtquelle und den Schirm stellt.
+              Das Objekt absorbiert das Licht und es entsteht ein lichtfreier Raum zwischen dem Objekt und dem Schirm.
+              Der Schatten ist der Bereich, indem kein Licht fällt.
+              Man unterscheidet die Lichtquellen in <span onmouseover="changeAnzahlLichtquellen(1)">Punktlichtquellen</span>, mehreren
+              <span onmouseover="changeAnzahlLichtquellen(5)">Punktlichtquellen</span> oder diffusen <span onmouseover="changeAnzahlLichtquellen(50)">Lichtquellen</span>
+              <span class="Quelle"><a href="../Quellen.html">[17]</a></span> <br><br> <br>
+
+
+              <span class="Ueberschrift02">Stoffverhalten</span> <br> <br>
+              <table class="table" id="Stoffverhalten">
+                <tr>
+                  <th width="20%" >Kategorie</th>
+                  <th width="40%">Absorption</th>
+                  <th width="40%">Durchlassen von Licht</th>
+                </tr>
+                <tr>
+                  <td>Beschreibung</td>
+                  <td>Wenn ein Lichtstrahl auf einen stark absorbierenden Gegenstand trifft, kehrt der Lichtstrahl nicht zurück.</td>
+                  <td>Wenn ein Lichtstrahl auf ein durchsichtigen Gegenstand trifft, breitet er sich unverändert durch diesen Gegenstand aus.</td>
+                </tr>
+                <tr>
+                  <td>Erklärung</td>
+                  <td>Dies hängt mit der Obeeflächenstruktur des Stoffes ab. Ist diese sehr fein, verliert sich das Licht im Stoff und wird nicht zurückgegeben  <br> <br></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Auswirkungen</td>
+                  <td>Fast alle Gegenstände absorbierenden einen Teil des auftreffenden Lichtes, manche absorbieren mehr und geben daher weniger Licht wieder zurück
+                  und erscheinen dadurch dunkler, andere absorbieren weniger und geben daher mehr Licht wieder zurück und erscheinen heller. <br><br>
+                  Manche Gegenstände absorbieren nur bestimmte Lichtsorten (Farben). Die Gegenstände erscheinen in den Restfarben. <br><br>
+                  Absorbiert ein Gegenstand Licht, so erwärmt er sich dadurch. <br> <br>
+                 </td>
+                 <td> Durchsichtige Gegenstände verursachen keinen Schatten. <br><br>
+                   Vollkommen durchsichtige Gegenstände können nicht gesehen werden, aber alle Gegenstände hinter dem durchsichtigem Körper. <br><br>
+                   Einige Gegenstände ändern je nach Einfallswinkel des Lichtes dessen Ausbreitungsrichtung, ohne es zu schwächen. Diese Gegenstände nennt man trotzdem durchsichtig. <br><br>
+                   Gelangt nur ein geringer Teil des Lichts durch einen Körper, so nennt man ihn durchscheinend, da man Gegenstände durch solche Körper nicht mehr klar erkennen kann.
+                 </td>
+                </tr>
+                <tr>
+                  <td>Darstellungen</td>
+                  <td> <img src="../../bilder/absorption.gif" width="250px"> </td>
+                  <td> <img src="../../bilder/durchsichtigkeit.gif" width="250px"> </td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>regelmäßige Reflexion</th>
+                  <th>unregelmäßige Reflexion</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td> <img src="../../bilder/regelmaessigeReflexion.gif" width="250px"> </td>
+                  <td> <img src="../../bilder/streuung.gif" width="250px"> </td>
+                </tr>
+              </table> <br> <br>
+              Häufig treten mehrerer dieser genannten Phänomene gleichzeitig auf. Ein Stein z.B. absorbiert ein Teil des Lichtes und streut den anderen Teil. <br> <br>
+              <span class="Ueberschrift02">Strahlensatz</span> <br>
+              <canvas id="Strahlensatz" width="300" height="180"></canvas> <br> <br>
+              Bei einem von einer Punktlichtquelle ausgehendem, divergenten Lichtbündel sind die Entfernung g von der Quelle und die Breite B des Lichtbündels direkt proportional zueinander.<br> <br>
+              <math>
+                <mfrac>
+                  <mi>B <sub>1</sub> </mi>
+                  <mi>g <sub>1</sub> </mi>
+                </mfrac>
+              </math>
+              =
+              <math>
+                <mfrac>
+                  <mi>B <sub>2</sub> </mi>
+                  <mi>g <sub>2</sub> </mi>
+                </mfrac>
+              </math>
+              &nbsp &nbsp bzw. &nbsp &nbsp
+              <math>
+                <mfrac>
+                  <mi>B</mi>
+                  <mi>g</mi>
+                </mfrac>
+              </math>
+              = const.
+              &nbsp &nbsp
+              <math>
+                <mfrac>
+                  <mi id="Breite">Fehler!</mi>
+                  <mi id="Gerade">Fehler!</mi>
+                </mfrac>
+              </math>
+              =
+              <span id="Verhaeltnis">Fehler!</span> <br> <br> <br>
+
+
+              <span class="Ueberschrift02">Lichtgeschwindigkeit</span> <br>
+              Die Ausbreitungsgeschwindigkeit von Licht nennt man Lichtgeschwindigkeit. In Formeln wird die Lichtgeschwindigkeit meist mit einem c abgekürzt
+              <table class="table">
+                <tr>
+                  <th width="100px">c<sub>Vakuum</sub></th>
+                  <th>300 000 <math><mfrac><mi>km</mi><mi>s</mi></mfrac></math></th>
+                </tr>
+                <tr>
+                  <th>c<sub>Luft</sub></th>
+                  <th>299 711 <math><mfrac><mi>km</mi><mi>s</mi></mfrac></math></th>
+                </tr>
+                <tr>
+                  <th>c<sub>Wasser</sub></th>
+                  <th>225 000 <math><mfrac><mi>km</mi><mi>s</mi></mfrac></math></th>
+                </tr>
+                <tr>
+                  <th>c<sub>Flintglas</sub></th>
+                  <th>186 000 <math><mfrac><mi>km</mi><mi>s</mi></mfrac></math></th>
+                </tr>
+                <tr>
+                  <th>c<sub>Vakuum</sub></th>
+                  <th>300 000 <math><mfrac><mi>km</mi><mi>s</mi></mfrac></math></th>
                 </tr>
               </table>
 
 
           </main>
-
         <footer id="footer" class="text2">
           <p id="author">Autor: </p>
         </footer>
-
-
-
       </body>
 </html>
 <!-- Brilliant als Quelle (Brennpunktberechnung)

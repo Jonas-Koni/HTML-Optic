@@ -28,6 +28,14 @@ body{
 
 }
 
+#Strahlensatz {
+  border: 1px solid black;
+  width: 600px;
+  border-radius: 0.5em 0.5em 0.5em;
+  font-size: 5;
+  background: #DDDDDD;
+}
+
 #ReflectionValues {
     text-align: left;
 }
@@ -50,6 +58,14 @@ body{
 }
 
 #Arten_von_Lichtbuendeln {
+  background: rgba(255,200,10,1);
+  padding: 16px;
+  border-radius: 0.5em 0.5em 0.5em;
+  border-style: solid;
+  border-color: rgba(255,180, 20,1);
+}
+
+#Stoffverhalten {
   background: rgba(255,200,10,1);
   padding: 16px;
   border-radius: 0.5em 0.5em 0.5em;
