@@ -3,6 +3,9 @@
             <title>Optik</title>
             <meta name="author" content="Jonas Königsmann"</meta>
             <link rel="stylesheet" href="../layout.css">
+            <script src="../js.js" defer></script>
+            <script src="../Schatten_canvas.js" defer></script>
+            <script src="../Strahlensatz_canvas.js" defer></script>
       </head>
       <body>
         <header id="header">
@@ -17,8 +20,11 @@
                 <ul>
                   <li class="lv2"><a href="Allgemein.html">Allgemein</a></li>
                   <li class="lv2"><a href="Lichtausbreitung.html">Lichtausbreitung</a></li>
-                  <li class="lv2"><a href="Lichtbuendel-und-strahlung.html">Lichtbündel und -stahlen</a></li>
-                  <li class="lv2"><a href="Schatten.html">Schatten</a></li>
+                  <ul>
+                    <li class="lv3"> <a href="Sehvorgang.html">Sehvorgang</a> </li>
+                    <li class="lv3"><a href="Lichtbuendel-und-strahlung.html">Lichtbündel und -stahlen</a></li>
+                    <li class="lv3"><a href="Schatten.html">Schatten</a></li>
+                </ul>
                   <li class="lv2"><a href="Reflexion-und-Brechung.html">Reflexion und Brechung</a></li> <br>
                   </ul>
                   <li class="lv1"><a href="#">Biologie</a></li>
@@ -32,24 +38,80 @@
                   <li class="lv1"><a href="#">Chemie</a></li>
                   <ul>
                     <li class="lv2"><a href="../Chemie/chemischer-Ablauf-des-Sehvorgangs.html">chemischer Ablauf des Sehvorgangs</a></li>
-                  </ul>
+                  </ul><br>
+                  <li class="lv1"><a href="../Quellen.html">Quellen</a></li>
             </nav>
           </section>
           <main id="information" class="text">
-            adad <br>
-            dadad
-          </main>
+            <b>Schatten</b> <br>
+            Schatten ist:
+            <ul>
+              <li>die unbeleuchtete Fläche eines Gegenstandes</li>
+              <li>die mittels einer Lichtquelle erzeugte Projektion eines Gegenstandes auf weiteren Gegenständen</li>
+              <li>allgemeiner der gesamte unbeleuchtete Raum hinter einem beleuchteten Körper</li>
+            </ul>
+            Man unterscheidet in Abhängigkeit von Anzahl und Ausdehnung an Lichtquellen mehrere Arten von Schatten (Kernschatten, Halbschatten und Mischschatten).
+            Der Rand des unbeleuchteten Schattens heißt Schattengrenze oder Hell-Dunkel-Grenze.
+            <span class="Quelle"><a href="../Quellen.html">[16]</a></span> <br>
+            <u>physikalische Größen:</u> <br>
+            <ul>
+              <li onmouseover="highlightpG(0)" onmouseout="highlightpG(-1)">Schirmabstand</li>
+              <li onmouseover="highlightpG(1)" onmouseout="highlightpG(-1)">Objektabstand</li>
 
-        <footer id="footer" class="text2">
-          <p id="author">Autor: </p>
-        </footer>
-        <script src="../js.js">
-
-        </script>
+            </ul>
 
 
-      </body>
-</html>
-<!-- Brilliant als Quelle (Brennpunktberechnung)
- Processing als Hilfsmittel (Logo)
-https://www.leifiphysik.de/sites/default/files/images/29966b519de4f359625c9403b071070b/1600optik_lichtausbreitung_225_02.webp -->
+            <canvas id="Schatten"></canvas> <br>
+            Simulation nicht realistisch!<br>
+            <div class="slidecontainer">
+              <br>
+              <table id="SchattenValues">
+                <tr>
+                  <th>Anzahl Lichtquellen:</th>
+                  <th width="75px" id="setAnzahlLichtquellen">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="1" max="50" value="1" id="getAnzahlLichtquellen" oninput="drawCanvas()"></th>
+                </tr>
+                <tr>
+                  <th>Verschiebung X:</th>
+                  <th id="setVerschiebungX">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="3" max="10" value="5" id="getVerschiebungX" oninput="drawCanvas()"></th>
+                </tr>
+                <tr>
+                  <th>Verschiebung Y:</th>
+                  <th id="setVerschiebungY">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="1" max="10" value="5" id="getVerschiebungY" oninput="drawCanvas()"></th>
+                </tr>
+                <tr>
+                  <th>Größe:</th>
+                  <th id="setSize">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="1" max="10" value="5" id="getSize" oninput="drawCanvas()"></th>
+                </tr>
+                <tr>
+                  <th>Position X Lichtquellen</th>
+                  <th id="setPoxXLichtquelle">Fehler!</th>
+                </tr>
+                <tr>
+                  <th><input type="range" min="0" max="10" value="5" id="getPosXLichtquelle" oninput="drawCanvas()"></th>
+                </tr>
+              </table> <br> <br>
+              Unter Schatten versteht man eine unbeleuchtete bzw. nicht direkt beleuchtete Fläche an z.B. einer Wand, sowie den nicht direkt
+              Schatten entsteht, wenn sich ein lichtundurchlässiges Objekt zwischen eine Lichtquelle und den Schirm stellt.
+              Das Objekt absorbiert das Licht und es entsteht ein lichtfreier Raum zwischen dem Objekt und dem Schirm.
+              Der Schatten ist der Bereich, indem kein Licht fällt.
+              Man unterscheidet die Lichtquellen in <span onmouseover="changeAnzahlLichtquellen(1)">Punktlichtquellen</span>, mehreren
+              <span onmouseover="changeAnzahlLichtquellen(5)">Punktlichtquellen</span> oder diffusen <span onmouseover="changeAnzahlLichtquellen(50)">Lichtquellen</span>
+              <span class="Quelle"><a href="../Quellen.html">[17]</a></span> <br><br> <br>
+            </main>
+          <footer id="footer" class="text2">
+            <p id="author">Autor: </p>
+          </footer>
+        </body>
+  </html>

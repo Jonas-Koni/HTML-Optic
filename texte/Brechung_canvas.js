@@ -165,6 +165,13 @@ function drawCanvasArcIncidentRay(ctx,angleAlpha){
   ctx.strokeStyle = 'rgba(200,10,10,0.5)';
   if(highlightNumber==7){ctx.strokeStyle = 'rgba(200,10,10,1)';}
   ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(c_width-StartX, StartY);
+  ctx.arc(c_width/2,c_height/2,c_height*0.2,-(90-angleAlpha)/UmrechnungDegRad,-90/UmrechnungDegRad,true);
+  ctx.strokeStyle = 'rgba(30,140,20,0.5)';
+  if(highlightNumber==9){ctx.strokeStyle = 'rgba(30,140,20,1)';}
+  ctx.stroke();
 }
 
 function drawCanvasArcRefractedRay(ctx,angleBeta){
@@ -198,17 +205,18 @@ function setPositionAlphaBetaSymbols(ctx,angleAlpha,angleBeta){
   ctx.fillStyle = 'rgba(200,10,10,0.5)';
   if(highlightNumber==7){ctx.fillStyle = 'rgba(200,10,10,1)';}
   ctx.fillText("\u03B1", posX_alpha, posY_alpha+8);
+
+  ctx.fillStyle = 'rgba(30,140,20,0.5)';
+  if(highlightNumber==9){ctx.fillStyle = 'rgba(30,140,20,1)';}
+  ctx.fillText("\u03B1'", c_width-posX_alpha, posY_alpha+8);
+
   ctx.fillStyle = 'rgba(240,100,0,0.5)';
   if(highlightNumber==8){ctx.fillStyle = 'rgba(240,100,0,1)';}
   ctx.fillText("\u03B2", posX_beta, posY_beta+8);
-
-  ctx.beginPath();
-  ctx.arc(posX_alpha,posY_alpha,10,0,2*Math.PI,true);
-  ctx.stroke();
 }
 
 
-function highlight(number){ //0:Medium dicht, 1: Medium dünn; 2: Horizontlinie 3: Lot 4:Einfallsstrahl 5: Reflektionsstrahl 6: Brechungsstrahl 7: Einfallswinkel 8: Brechungswinkel
+function highlight(number){ //0:Medium dicht, 1: Medium dünn; 2: Horizontlinie 3: Lot 4:Einfallsstrahl 5: Reflektionsstrahl 6: Brechungsstrahl 7: Einfallswinkel 8: Brechungswinkel 9: Relflektionsiwnkel
   highlightNumber = number;
   drawCanvas();
 }
