@@ -130,6 +130,12 @@ body{
   color: red;
 }
 
+.lv3 {
+  margin-left: -70px;
+  font-size: 12px;
+  color: red;
+}
+
 
 main {
   background: rgba(251, 239, 2, 1);
