@@ -43,6 +43,11 @@ body{
 .table {
   text-align: left;
 }
+.table img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .table td {
   vertical-align: top;
@@ -95,6 +100,8 @@ body{
   border-width: 2px;
   border-spacing: 100px;
 }
+
+
 
 .navigation {
   background: rgba(251, 239, 2, 1);
