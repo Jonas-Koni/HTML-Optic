@@ -2,46 +2,40 @@
       <head>
             <title>Optik</title>
             <meta name="author" content="Jonas Königsmann"</meta>
-            <link rel="stylesheet" href="../layout.css">
-            <script src="../js.js" defer></script>
-            <script src="../Schatten_canvas.js" defer></script>
-            <script src="../Strahlensatz_canvas.js" defer></script>
+            <link rel="stylesheet" href="layout.css">
+            <script src="js.js" defer></script>
+            <script src="Schatten_canvas.js" defer></script>
+            <script src="Strahlensatz_canvas.js" defer></script>
       </head>
       <body>
         <header id="header">
-            <img src="../../bilder/logo.PNG" width="180" height="180">
-            <img src="../../bilder/Lichtausbreitung-Kopie.PNG" height="180px">
+            <img src="../bilder/logo.PNG" width="180" height="180">
+            <img src="../bilder/Lichtausbreitung-Kopie.PNG" height="180px">
         </header>
-          <section class="navigation" id="navigation">
-            <nav>
+        <section class="navigation" id="navigation">
+          <nav>
+            <ul>
+              <li class="lv1"><a href="../index.html">Startseite</a></li><br>
+              <li class="lv1"><a href="Allgemein.html">Physik</a></li>
               <ul>
-                <li class="lv1"><a href="../../index.html">Startseite</a></li><br>
-                <li class="lv1"><a href="Allgemein.html">Physik</a></li>
+                <li class="lv2"><a href="Allgemein.html">Allgemein</a></li>
+                <li class="lv2"><a href="Lichtausbreitung.html">Lichtausbreitung</a></li>
                 <ul>
-                  <li class="lv2"><a href="Allgemein.html">Allgemein</a></li>
-                  <li class="lv2"><a href="Lichtausbreitung.html">Lichtausbreitung</a></li>
-                  <ul>
-                    <li class="lv3"> <a href="Sehvorgang.html">Sehvorgang</a> </li>
-                    <li class="lv3"><a href="Lichtbuendel-und-strahlung.html">Lichtbündel und -stahlen</a></li>
-                    <li class="lv3"><a href="Schatten.html">Schatten</a></li>
+                  <li class="lv3"> <a href="Sehvorgang.html">Sehvorgang</a> </li>
+                  <li class="lv3"><a href="Lichtbuendel-und-strahlung.html">Lichtbündel und -stahlen</a></li>
+                  <li class="lv3"><a href="Schatten.html">Schatten</a></li>
+                  <li class="lv3"> <a href="Stoffverhalten.html">Stoffverhalten</a> </li>
+                  <li class="lv3"> <a href="Strahlensatz.html">Strahlensatz</a> </li>
+                  <li class="lv3"> <a href="Lichtgeschwindigkeit.html">Lichtgeschwindigkeit</a> </li>
                 </ul>
-                  <li class="lv2"><a href="Reflexion-und-Brechung.html">Reflexion und Brechung</a></li> <br>
-                  </ul>
-                  <li class="lv1"><a href="#">Biologie</a></li>
-                  <ul>
-                    <li class="lv2"><a href="../Biologie/Allgemein.html">Allgemeines</a></li>
-                    <li class="lv2"><a href="../Biologie/Sehfehler-und-erkrankungen.html">Sehfehler und -erkranungen</a></li>
-                    <li class="lv2"><a href="../Biologie/Sehen-und-Wahrnehmen-bei-Tieren.html">Sehen und Wahrnehmen bei Tieren</a></li>
-                    <li class="lv2"><a href="../Biologie/optische-Taeuschungen.html">optische Täuschungen</a></li>
-                    <li class="lv2"><a href="../Biologie/Leistungen-des-menschlichen-Auges.html">Leistungen des menschlichen Auges</a></li> <br>
-                  </ul>
-                  <li class="lv1"><a href="#">Chemie</a></li>
-                  <ul>
-                    <li class="lv2"><a href="../Chemie/chemischer-Ablauf-des-Sehvorgangs.html">chemischer Ablauf des Sehvorgangs</a></li>
-                  </ul><br>
-                  <li class="lv1"><a href="../Quellen.html">Quellen</a></li>
-            </nav>
-          </section>
+                <li class="lv2"><a href="Reflexion-und-Brechung.html">Reflexion und Brechung</a></li>
+                <li class="lv2"> <a href="Linsen.html">Linsen</a> </li>
+              </ul>
+              <br>
+                <li class="lv1"><a href="Quellen.html">Quellen</a></li>
+            </ul>
+          </nav>
+        </section>
           <main id="information" class="text">
             <b>Schatten</b> <br>
             Schatten ist:
@@ -52,7 +46,7 @@
             </ul>
             Man unterscheidet in Abhängigkeit von Anzahl und Ausdehnung an Lichtquellen mehrere Arten von Schatten (Kernschatten, Halbschatten und Mischschatten).
             Der Rand des unbeleuchteten Schattens heißt Schattengrenze oder Hell-Dunkel-Grenze.
-            <span class="Quelle"><a href="../Quellen.html">[16]</a></span> <br>
+            <span class="Quelle"><a href="Quellen.html">[16]</a></span> <br>
             <u>physikalische Größen:</u> <br>
             <ul>
               <li onmouseover="highlightpG(0)" onmouseout="highlightpG(-1)">Schirmabstand</li>
@@ -108,7 +102,7 @@
               Der Schatten ist der Bereich, indem kein Licht fällt.
               Man unterscheidet die Lichtquellen in <span onmouseover="changeAnzahlLichtquellen(1)">Punktlichtquellen</span>, mehreren
               <span onmouseover="changeAnzahlLichtquellen(5)">Punktlichtquellen</span> oder diffusen <span onmouseover="changeAnzahlLichtquellen(50)">Lichtquellen</span>
-              <span class="Quelle"><a href="../Quellen.html">[17]</a></span> <br><br> <br>
+              <span class="Quelle"><a href="Quellen.html">[17]</a></span> <br><br> <br>
             </main>
           <footer id="footer" class="text2">
             <p id="author">Autor: </p>

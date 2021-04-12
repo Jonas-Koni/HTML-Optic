@@ -1,0 +1,80 @@
+<html>
+      <head>
+            <title>Optik</title>
+            <meta name="author" content="Jonas Königsmann"</meta>
+            <link rel="stylesheet" href="layout.css">
+            <script src="js.js" defer></script>
+            <script src="Schatten_canvas.js" defer></script>
+            <script src="Strahlensatz_canvas.js" defer></script>
+      </head>
+      <body>
+        <header id="header">
+            <img src="../bilder/logo.PNG" width="180" height="180">
+            <img src="../bilder/Lichtausbreitung-Kopie.PNG" height="180px">
+        </header>
+        <section class="navigation" id="navigation">
+          <nav>
+            <ul>
+              <li class="lv1"><a href="../index.html">Startseite</a></li><br>
+              <li class="lv1"><a href="Allgemein.html">Physik</a></li>
+              <ul>
+                <li class="lv2"><a href="Allgemein.html">Allgemein</a></li>
+                <li class="lv2"><a href="Lichtausbreitung.html">Lichtausbreitung</a></li>
+                <ul>
+                  <li class="lv3"> <a href="Sehvorgang.html">Sehvorgang</a> </li>
+                  <li class="lv3"><a href="Lichtbuendel-und-strahlung.html">Lichtbündel und -stahlen</a></li>
+                  <li class="lv3"><a href="Schatten.html">Schatten</a></li>
+                  <li class="lv3"> <a href="Stoffverhalten.html">Stoffverhalten</a> </li>
+                  <li class="lv3"> <a href="Strahlensatz.html">Strahlensatz</a> </li>
+                  <li class="lv3"> <a href="Lichtgeschwindigkeit.html">Lichtgeschwindigkeit</a> </li>
+                </ul>
+                <li class="lv2"><a href="Reflexion-und-Brechung.html">Reflexion und Brechung</a></li>
+                <li class="lv2"> <a href="Linsen.html">Linsen</a> </li>
+              </ul>
+              <br>
+                <li class="lv1"><a href="Quellen.html">Quellen</a></li>
+            </ul>
+          </nav>
+        </section>
+          <main id="information" class="text">
+            <span class="Ueberschrift02">Strahlensatz</span> <br>
+            <canvas id="Strahlensatz" width="300" height="180"></canvas> <br> <br>
+            Bei einem von einer Punktlichtquelle ausgehendem, divergenten Lichtbündel sind die Entfernung g von der Quelle und die Breite B des Lichtbündels direkt proportional zueinander.<br> <br>
+            <math>
+              <mfrac>
+                <mi>B <sub>1</sub> </mi>
+                <mi>g <sub>1</sub> </mi>
+              </mfrac>
+            </math>
+            =
+            <math>
+              <mfrac>
+                <mi>B <sub>2</sub> </mi>
+                <mi>g <sub>2</sub> </mi>
+              </mfrac>
+            </math>
+            &nbsp &nbsp bzw. &nbsp &nbsp
+            <math>
+              <mfrac>
+                <mi>B</mi>
+                <mi>g</mi>
+              </mfrac>
+            </math>
+            = const.
+            &nbsp &nbsp
+            <math>
+              <mfrac>
+                <mi id="Breite">Fehler!</mi>
+                <mi id="Gerade">Fehler!</mi>
+              </mfrac>
+            </math>
+            =
+            <span id="Verhaeltnis">Fehler!</span>
+            <span class="Quelle"><a href="Quellen.html">[23]</a></span>
+
+          </main>
+        <footer id="footer" class="text2">
+          <p id="author">Autor: </p>
+        </footer>
+      </body>
+</html>
