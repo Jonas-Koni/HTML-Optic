@@ -159,7 +159,7 @@ function writeValues(box1){
   document.getElementById("setAnzahlLichtquellen").innerHTML = getAnzahlLichtquellen();
   document.getElementById("setVerschiebungX").innerHTML = Math.round(box1.topLeftX-box1.size/2);
   document.getElementById("setVerschiebungY").innerHTML = Math.round(box1.topLeftY+box1.size);
-  document.getElementById("setSize").innerHTML = box1.size;
+  document.getElementById("setSize").innerHTML = Math.round(box1.size);
   document.getElementById("setPoxXLichtquelle").innerHTML = Math.round(getPosXLichtquelle(c_width, box1));
 }
 
